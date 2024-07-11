@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { MyRuntimeProvider } from "@/app/MyRuntimeProvider";
-import { cn } from "@/lib/utils";
 
 import "./globals.css";
 
@@ -20,7 +19,7 @@ export default function RootLayout({
   return (
     <MyRuntimeProvider>
       <html lang="en" className="h-full">
-        <body className={cn(inter.className, "h-full")}>{children}</body>
+        <body className={`${inter.className} h-full`}>{children}</body>
       </html>
     </MyRuntimeProvider>
   );

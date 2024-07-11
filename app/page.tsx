@@ -1,4 +1,4 @@
-import { Thread } from "@/components/ui/assistant-ui/thread";
+import { Thread } from "@assistant-ui/react";
 
 export default function Home() {
   return (
