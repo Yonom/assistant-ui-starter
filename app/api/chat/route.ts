@@ -1,8 +1,16 @@
 import { openai } from "@ai-sdk/openai";
-import { createEdgeRuntimeAPI } from "@assistant-ui/react/edge";
+import { getEdgeRuntimeResponse } from "@assistant-ui/react/edge";
 
 export const maxDuration = 30;
 
-export const { POST } = createEdgeRuntimeAPI({
-  model: openai("gpt-4o"),
-});
+export const POST = async (request: Request) => {
+  const requestData = await request.json();
+
+  return getEdgeRuntimeResponse({
+    options: {
+      model: openai("gpt-4o"),
+    },
+    requestData,
+    abortSignal: request.signal,
+  });
+};
